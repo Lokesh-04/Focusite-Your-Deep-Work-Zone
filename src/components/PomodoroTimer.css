@@ -1,0 +1,129 @@
+/* PomodoroTimer.css - Dark Palette with Padding Adjustments */
+
+.pomodoro-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  /* NEW: Add padding-top to visually match task panel's top content */
+  /* This ensures content starts lower within the panel, creating consistent top padding */
+  padding-top: 5px; /* Adjust this value to visually match tasks panel's content start */
+}
+
+.pomodoro-timer h2 {
+  font-size: 2.2em;
+  color: #f0f0f0;
+  margin-top: 0; /* Remains 0, padding-top on .pomodoro-timer handles vertical alignment */
+  margin-bottom: 25px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.timer-display {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 6em;
+  font-weight: bold;
+  color: #8bb4e8;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px 45px;
+  border-radius: 15px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 35px;
+  min-width: 220px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.controls button {
+  background-color: #5a7d9b;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.controls button:hover {
+  background-color: #6a90b0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.controls button:last-child {
+  background-color: #b05c6e;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.controls button:last-child:hover {
+  background-color: #c06c7e;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.pomodoros-counter {
+  font-size: 1.0em;
+  color: #c0c0c0;
+  margin-top: auto;
+  margin-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+.pomodoros-counter span {
+  font-weight: bold;
+  color: #8bb4e8;
+  margin-left: 5px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .pomodoro-timer {
+    padding-top: 0; /* Remove padding-top when stacking vertically */
+  }
+  .pomodoro-timer h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  .timer-display {
+    font-size: 4.5em;
+    padding: 15px 30px;
+  }
+  .controls button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+  }
+  .pomodoros-counter {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .pomodoro-timer h2 {
+    font-size: 1.6em;
+  }
+  .timer-display {
+    font-size: 3.5em;
+    padding: 10px 20px;
+  }
+  .controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .controls button {
+    width: 100%;
+  }
+}

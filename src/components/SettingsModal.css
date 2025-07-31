@@ -1,0 +1,117 @@
+/* SettingsModal.css - Dark Palette */
+
+.settings-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker, more opaque background for modal overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.settings-modal-content {
+  background-color: rgba(44, 62, 80, 0.6); /* Dark blue-gray with transparency */
+  backdrop-filter: blur(20px); /* Stronger blur for modal */
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Deeper shadow for dark modal */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle light border */
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  color: #e0e0e0; /* Light gray for default text inside modal */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.settings-modal-content h2 {
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #f0f0f0; /* Light text for modal heading */
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.setting-item label {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #c0c0c0; /* Slightly darker light gray for labels */
+}
+
+.setting-item input[type="number"] {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border for input */
+  background-color: rgba(255, 255, 255, 0.1); /* Very subtle transparent white background for input */
+  border-radius: 10px;
+  font-size: 1.1em;
+  color: #f0f0f0; /* Light text for input value */
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.setting-item input[type="number"]:focus {
+  border-color: #8bb4e8; /* Soft blue focus highlight */
+  box-shadow: 0 0 0 3px rgba(139, 180, 232, 0.3);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Darker button shadow */
+}
+
+.modal-actions .save-button {
+  background-color: #66bb6a; /* Muted green for Save */
+  color: white;
+}
+
+.modal-actions .save-button:hover {
+  background-color: #55aa59;
+  transform: translateY(-1px);
+}
+
+.modal-actions .cancel-button {
+  background-color: #a0a0a0; /* Muted gray for Cancel */
+  color: white;
+}
+
+.modal-actions .cancel-button:hover {
+  background-color: #909090;
+  transform: translateY(-1px);
+}

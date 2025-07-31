@@ -1,0 +1,169 @@
+/* StationSelectorModal.css */
+
+.station-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker, more opaque background for modal overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000; /* Higher z-index to ensure it overlaps everything */
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.station-modal-content {
+  background-color: rgba(44, 62, 80, 0.6); /* Dark frosted glass effect for modal */
+  backdrop-filter: blur(20px); /* Stronger blur for modal */
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Deeper shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle light border */
+  padding: 30px;
+  width: 90%;
+  max-width: 600px; /* Max width for the modal */
+  height: 80%; /* Max height for the modal */
+  max-height: 80vh; /* Max viewport height */
+  color: #e0e0e0; /* Light gray for text */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Hide scrollbars if content overflows */
+}
+
+.station-modal-content h2 {
+  font-size: 2em;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.station-categories {
+  flex-grow: 1; /* Allow categories section to take available space */
+  overflow-y: auto; /* Enable scrolling for categories */
+  padding-right: 15px; /* Space for scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent; /* Custom scrollbar */
+}
+
+/* Custom Webkit scrollbar */
+.station-categories::-webkit-scrollbar {
+  width: 8px;
+}
+.station-categories::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+.station-categories::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+.station-categories::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+
+.station-category {
+  margin-bottom: 30px; /* Space between categories */
+}
+
+.station-category h3 {
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #8bb4e8; /* Soft blue for category headings */
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+  padding-bottom: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.station-list {
+  list-style: none;
+  padding: 0;
+  display: grid; /* Use grid for multi-column layout */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+  gap: 10px; /* Gap between list items */
+}
+
+.station-list-item {
+  background-color: rgba(255, 255, 255, 0.08); /* Subtle background for list items */
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap; /* Prevent wrapping for names */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid transparent; /* Base for hover effect */
+}
+
+.station-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Brighter on hover */
+  transform: translateY(-2px); /* Slight lift */
+  border-color: rgba(139, 180, 232, 0.5); /* Subtle blue border on hover */
+}
+
+.station-modal-close-button {
+  background-color: #b05c6e; /* Muted red for close button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  margin-top: 20px;
+  align-self: center; /* Center the button */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.station-modal-close-button:hover {
+  background-color: #c06c7e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 768px) {
+  .station-modal-content {
+    padding: 20px;
+    width: 95%;
+    max-width: 450px;
+    height: 90%;
+    max-height: 90vh;
+  }
+  .station-modal-content h2 {
+    font-size: 1.8em;
+  }
+  .station-category h3 {
+    font-size: 1.2em;
+  }
+  .station-list {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .station-modal-content {
+    padding: 15px;
+  }
+  .station-modal-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  .station-modal-close-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}

@@ -1,0 +1,287 @@
+/* Tasks.css - Dark Palette with Input Size Reduction and Padding Adjustments, and Task Counts */
+
+.tasks-container {
+  width: 100%;
+  max-width: none;
+  padding-top: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.tasks-container h3 {
+  font-size: 1.8em;
+  color: #f0f0f0;
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85em;
+  color: #b0b0b0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex; /* Make buttons flex to align text and count */
+  align-items: center; /* Vertically center them */
+  gap: 5px; /* Space between text and count */
+}
+
+.filter-buttons button span { /* Style for the count itself */
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #f0f0f0;
+  font-size: 0.75em; /* Smaller font for the count */
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+  min-width: 15px; /* Ensure a minimum width for single digits */
+  text-align: center;
+}
+
+.filter-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Increased opacity on hover */
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.filter-buttons button.active {
+  background-color: #a06e3e;
+  color: white;
+  border-color: #b07e4e;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+}
+
+.filter-buttons button.active span { /* Active count styling */
+  background-color: rgba(255, 255, 255, 0.3); /* Slightly brighter for active count */
+  color: white;
+}
+
+
+.add-task-input-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 5px 10px; /* NEW: Even more reduced padding */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+}
+
+.add-task-input-wrapper input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9em; /* NEW: Slightly smaller font */
+  color: #f0f0f0;
+}
+
+.add-task-input-wrapper input::placeholder {
+  color: #a0a0a0;
+}
+
+.add-task-button {
+  background: none;
+  border: none;
+  color: #8bb4e8;
+  font-size: 1.3em; /* NEW: Slightly smaller icon */
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.add-task-button:hover {
+  color: #9bccf0;
+  transform: scale(1.1);
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  max-height: 290px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.task-list li.completed {
+  background-color: rgba(90, 130, 90, 0.3);
+  opacity: 0.9;
+  border-left: 5px solid #66bb6a;
+}
+
+.task-text {
+  flex-grow: 1;
+  font-size: 0.95em;
+  color: #f0f0f0;
+  text-align: left;
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.task-list li.completed .task-text {
+  text-decoration: line-through;
+  color: #a0a0a0;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+  margin-left: 8px;
+}
+
+.task-actions button {
+  background: none;
+  border: none;
+  font-size: 1.1em;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.task-actions button.delete-button {
+  color: #e07070;
+}
+
+.task-actions button.delete-button:hover {
+  background-color: rgba(224, 112, 112, 0.15);
+  transform: scale(1.1);
+}
+
+.task-actions button.complete-button {
+  color: #66bb6a;
+}
+
+.task-actions button.complete-button:hover {
+  background-color: rgba(102, 187, 106, 0.15);
+  transform: scale(1.1);
+}
+
+.no-tasks-message {
+  color: #a0a0a0;
+  font-style: italic;
+  margin-top: 15px;
+  font-size: 0.9em;
+  padding: 6px 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .tasks-container h3 {
+    font-size: 1.6em;
+  }
+  .filter-buttons button {
+    font-size: 0.75em; /* Adjusted smaller */
+    padding: 4px 8px; /* Adjusted smaller */
+  }
+  .add-task-input-wrapper input {
+    font-size: 0.85em; /* Adjusted smaller */
+  }
+  .add-task-button {
+    font-size: 1.1em; /* Adjusted smaller */
+  }
+  .task-list {
+    max-height: 150px;
+  }
+  .task-list li {
+    padding: 6px 10px;
+    font-size: 0.85em;
+  }
+  .task-actions button {
+    font-size: 0.9em;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tasks-container h3 {
+    font-size: 1.4em;
+  }
+  .filter-buttons {
+    flex-wrap: wrap;
+  }
+  .filter-buttons button {
+    font-size: 0.65em; /* Adjusted smaller */
+    padding: 3px 5px; /* Adjusted smaller */
+  }
+  .add-task-input-wrapper {
+    padding: 3px 6px; /* Adjusted smaller */
+  }
+  .add-task-button {
+    font-size: 1em; /* Adjusted smaller */
+  }
+  .task-list {
+    max-height: 100px;
+  }
+  .task-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px;
+  }
+  .task-text {
+    margin-bottom: 4px;
+    width: 100%;
+  }
+  .task-actions {
+    width: 100%;
+    justify-content: flex-end;
+    margin-left: 0;
+  }
+}
