@@ -118,6 +118,17 @@ const PomodoroTimer = ({ initialWorkTime, initialBreakTime }) => {
     document.title = `${formatTime(timeLeft)} - ${isWorking ? 'Work' : 'Break'} | Focusite`;
   }, [timeLeft, isWorking]);
 
+  useEffect(() => {
+    // Only update the display if the timer is not active
+    if (!isActive) {
+      // If we are in a work session, set to new work time
+      // If we are in a break session, set to new break time
+      setTimeLeft(isWorking ? initialWorkTime : initialBreakTime);
+    }
+    // This effect runs whenever the props change, or if the
+    // timer is stopped/started, or the session type changes.
+  }, [initialWorkTime, initialBreakTime, isWorking, isActive]);
+
 
   // --- User-facing control functions ---
   const startTimer = () => {
